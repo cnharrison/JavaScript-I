@@ -97,13 +97,21 @@ console.log(
 
 // ==== Challenge 3 ====
 // The marketing team wants the car models listed alphabetically on the website. Sort all the car model names into alphabetical order and log the results in the console
+let carModels = [];
+let alphaModels = inventory.sort(comparison);
+function comparison(a,b) {
+    if (a.car_model < b.car_model)
+      return -1;
+    if (a.car_model > b.car_model)
+      return 1;
+    return 0;
+  }
 
-// let carModels = [];
-// for (i = 0; i < inventory.length; i++) {
-//     console.log(inventory[i]);
-// }
+for (i = 0; i < inventory.length; i++) {
+ carModels.push(alphaModels[i].car_model);
+}
 
-// console.log();
+console.log(carModels);
 
 // ==== Challenge 4 ====
 // The accounting team needs all the years from every car on the lot. Create a new array from the dealer data containing only the car years and log the result in the console.
@@ -128,7 +136,7 @@ console.log(oldCars);
 let BMWAndAudi = [];
 for (i = 0; i < inventory.length; i++) {
     if (inventory[i].car_make == "BMW") {
-        BMWAndAudi.push(inventory[i].car_make);
+        BMWAndAudi.push(inventory[i]);
     }
     if (inventory[i].car_make == "Audi") {
         BMWAndAudi.push(inventory[i]);
